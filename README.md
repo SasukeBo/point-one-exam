@@ -40,3 +40,8 @@
   ~ $ curl -X GET "localhost:8080/reset"
   # => {"message": "ok"}
   ```
+
+### 时间复杂度
+
+- 记录的时间复杂度为 $O(n)$
+- 推荐的时间复杂度为 $O(m^2+mn)$
