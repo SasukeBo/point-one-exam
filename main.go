@@ -103,7 +103,6 @@ func main() {
 		fromUser := c.PostForm("from")
 		to := c.PostForm("to")
 		toUsers := strings.Split(to, ",")
-		fmt.Println(toUsers)
 
 		for _, toUser := range toUsers {
 			ref := userRef{From: fromUser, To: toUser, PostID: postID}
@@ -115,6 +114,12 @@ func main() {
 			"id":      postID,
 		})
 		postID++
+	})
+
+	r.GET("/reset", func(c *gin.Context) {
+		db.Unscoped().Delete(userRef{})
+
+		c.JSON(200, gin.H{"message": "ok"})
 	})
 
 	r.Run()
