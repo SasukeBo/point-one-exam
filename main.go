@@ -19,7 +19,7 @@ type userRef struct {
 var postID = 1
 
 func main() {
-	db, err := gorm.Open("postgres", "host=localhost port=5432 user=sasuke dbname=point_one password=Wb922149@...S sslmode=disable")
+	db, err := gorm.Open("postgres", "host=localhost port=9221 user=sasukebo dbname=point_one password=Wb922149@...S sslmode=disable")
 	defer db.Close()
 	if err != nil {
 		fmt.Println(err)
@@ -122,5 +122,5 @@ func main() {
 		c.JSON(200, gin.H{"message": "ok"})
 	})
 
-	r.Run()
+	r.Run(":17650")
 }
